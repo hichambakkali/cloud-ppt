@@ -1,0 +1,28 @@
+Pour intégrer Google Maps dans une application React, vous pouvez utiliser la bibliothèque react-google-maps. Voici un exemple de base de la façon dont vous pouvez l'utiliser.
+
+Installez la bibliothèque avec npm ou yarn :
+npm install --save react-google-maps
+ou 
+yarn add react-google-maps
+Importez la bibliothèque dans votre composant :
+import { withGoogleMap, GoogleMap, Marker } from "react-google-maps";
+Créez un composant pour votre carte :
+const MyMapComponent = withGoogleMap(props =>
+  <GoogleMap
+    defaultZoom={8}
+    defaultCenter={{ lat: -34.397, lng: 150.644 }}
+  >
+    {props.isMarkerShown && <Marker position={{ lat: -34.397, lng: 150.644 }} />}
+  </GoogleMap>
+)
+Utilisez ce composant dans votre application :
+<MyMapComponent
+  isMarkerShown
+  containerElement={<div style={{ height: `400px` }} />}
+  mapElement={<div style={{ height: `100%` }} />}
+/>
+N'oubliez pas que vous aurez besoin d'une clé API de Google Maps pour utiliser cette bibliothèque. Vous pouvez obtenir une clé API en créant un projet sur la console de Google Cloud.
+
+Pour le style et le design de votre application, vous pouvez utiliser des bibliothèques comme material-ui ou antd. Ces bibliothèques fournissent une variété de composants pré-conçus que vous pouvez utiliser pour créer une interface utilisateur attrayante.
+
+N'oubliez pas de commenter votre code pour expliquer ce que chaque partie fait. Cela aidera les autres développeurs (et vous-même à l'avenir) à comprendre votre code plus facilement.
